@@ -1,0 +1,15 @@
+{% extends 'kzjazdow/base.html' %}
+
+{% block content %}
+
+	{% for zjazd in zjazdy %}
+		{{ forloop.counter }}.  
+		<a href="{% url 'szczegoly_zjazdu' pk=zjazd.pk %}">{{ zjazd.nr_tramwaju }} {{ zjazd.data | date:"d.m.Y (l)" }} {{ zjazd.godzina | date:"f" }}</a><br>
+		{{ zjazd.nr_motorniczego }} {{ zjazd.linia_brygada }}<br>
+		{{ zjazd.opis_usterki|linebreaksbr }}<br>
+		{{ zjazd.opis_naprawy|linebreaksbr }}<br>
+		-------<br>
+
+	{% endfor %}
+	
+{% endblock content %}

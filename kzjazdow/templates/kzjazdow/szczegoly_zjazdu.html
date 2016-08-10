@@ -1,0 +1,16 @@
+{% extends 'kzjazdow/base.html' %}
+
+{% block content %}
+    Tramwaj nr: {{ zjazd.nr_tramwaju }} <br>
+    Czas: {{ zjazd.data_godzina | date:"f d.m.Y (l)" }} <br>
+	Nr motorniczego: {{ zjazd.nr_motorniczego }} <br>
+	Linia/Brygada: {{ zjazd.linia_brygada }}<br>
+	Opis usterki: {{ zjazd.opis_usterki|linebreaksbr }}<br>
+	Opis naprawy: {{ zjazd.opis_naprawy|linebreaksbr }}<br>
+
+	{% if user.is_authenticated %}
+	<a class="btn btn-default" href="{% url 'edytuj_zjazd' pk=zjazd.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><br>
+	<a class="btn btn-default" href="{% url 'usun_zjazd' pk=zjazd.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+	{% endif %}
+
+{% endblock %}

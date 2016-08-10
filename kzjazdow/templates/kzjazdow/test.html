@@ -1,0 +1,9 @@
+{% extends 'kzjazdow/base.html' %}
+
+{% block content %}
+<p><h1>{{testowy_text}}</h1></p>
+<form method="POST" class="post-form">{% csrf_token %}
+        <input type="text" name="hhh" value="ttt">
+        <button type="submit" class="save btn btn-default">Zapisz</button>
+<p>
+{% endblock %}
